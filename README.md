@@ -1,4 +1,4 @@
-# hi-techiecpt-amount-conversion
+# amount-conversion service
 A Spring Boot API to convert amounts
 
 To execute this API clone this repo and run `mvn clean install`
