@@ -31,6 +31,13 @@ public class AmountConversionServiceImpl implements AmountConversionService {
         return kilometers;
     }
 
+    @Override
+    public float convertKmToMiles(double distanceInKm) {
+        float miles = (float) (distanceInKm * 0.6214);
+        getLog().info("Distance in Miles: {} " , miles);
+        return miles;
+    }
+
     public static Logger getLog() {
         return LOGGER;
     }

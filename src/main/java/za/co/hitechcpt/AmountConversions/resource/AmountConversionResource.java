@@ -47,4 +47,14 @@ public class AmountConversionResource {
         return milesToKm + "KM";
 
     }
+
+    @ApiOperation(value="Convert Kilometers to Miles Endpoint",
+            notes="${userResource.KilometersToMiles.ApiOperation.Notes}")
+    @GetMapping(path = "/ktom/{km}", produces = {MediaType.TEXT_PLAIN_VALUE})
+    public String convertKmToMiles(@PathVariable double km){
+        getLog().info("Converting Kilometers to Miles {} ", km);
+        float kmToMiles = conversionService.convertKmToMiles(km);
+        return kmToMiles + "Miles";
+
+    }
 }
