@@ -29,4 +29,12 @@ public class AmountConversionResource {
         getLog().info("Converting Kelvin to Celsius {} ", kelvin);
        return conversionService.convertKelvinToCelsius(kelvin);
     }
+
+    @ApiOperation(value="Convert Celsius Amount to Kelvin Endpoint",
+            notes="${userResource.CelsiusToKelvin.ApiOperation.Notes}")
+    @GetMapping(path = "/ctok/{celsius}", produces = {MediaType.TEXT_PLAIN_VALUE})
+    public String convertCelsiusToKelvin(@PathVariable float celsius){
+        getLog().info("Converting Celsius to Kelvin {} ", celsius);
+        return conversionService.convertCelsiusToKelvin(celsius);
+    }
 }

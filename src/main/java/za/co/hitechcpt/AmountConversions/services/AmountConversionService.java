@@ -5,4 +5,5 @@ import org.springframework.stereotype.Service;
 public interface AmountConversionService {
 
     String convertKelvinToCelsius(double kelvin);
+    String convertCelsiusToKelvin(float celsius);
 }

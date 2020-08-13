@@ -12,9 +12,16 @@ public class AmountConversionServiceImpl implements AmountConversionService {
 
     @Override
     public String convertKelvinToCelsius(double kelvin) {
-        double celsius = (kelvin - 273.15);
+        float celsius = (float) (kelvin - 273.15);
         getLog().info("Celsius is: {} ", celsius);
         return celsius + "C";
+    }
+
+    @Override
+    public String convertCelsiusToKelvin(float celsius) {
+        float kelvin = (float) (celsius + 273.15);
+        getLog().info("Converted Celsius to Kelvin: {} ", kelvin);
+        return kelvin + "K";
     }
 
     public static Logger getLog() {
