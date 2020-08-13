@@ -24,6 +24,13 @@ public class AmountConversionServiceImpl implements AmountConversionService {
         return kelvin + "K";
     }
 
+    @Override
+    public float convertMilesToKm(double distanceInMiles) {
+        float kilometers = (float) (distanceInMiles * 1.60934);
+        getLog().info("Distance in Kilometers: {} " , kilometers);
+        return kilometers;
+    }
+
     public static Logger getLog() {
         return LOGGER;
     }

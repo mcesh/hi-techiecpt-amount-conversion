@@ -6,4 +6,5 @@ public interface AmountConversionService {
 
     String convertKelvinToCelsius(double kelvin);
     String convertCelsiusToKelvin(float celsius);
+    float convertMilesToKm(double distanceInMiles);
 }

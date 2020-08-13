@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import za.co.hitechcpt.AmountConversions.services.AmountConversionService;
 
 @RestController
-@RequestMapping("conversions") // http://localhost:8080/users/web-apps-platform
+@RequestMapping("conversions")
 public class AmountConversionResource {
     private static Logger LOGGER = LoggerFactory.getLogger(AmountConversionResource.class);
 
@@ -36,5 +36,15 @@ public class AmountConversionResource {
     public String convertCelsiusToKelvin(@PathVariable float celsius){
         getLog().info("Converting Celsius to Kelvin {} ", celsius);
         return conversionService.convertCelsiusToKelvin(celsius);
+    }
+
+    @ApiOperation(value="Convert Miles to Kilometers Endpoint",
+            notes="${userResource.MilesToKilometers.ApiOperation.Notes}")
+    @GetMapping(path = "/mtok/{miles}", produces = {MediaType.TEXT_PLAIN_VALUE})
+    public String convertMilesToKm(@PathVariable double miles){
+        getLog().info("Converting Miles to Kilometers {} ", miles);
+        float milesToKm = conversionService.convertMilesToKm(miles);
+        return milesToKm + "KM";
+
     }
 }
