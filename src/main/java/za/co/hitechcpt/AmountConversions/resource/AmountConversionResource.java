@@ -1,5 +1,6 @@
 package za.co.hitechcpt.AmountConversions.resource;
 
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +22,11 @@ public class AmountConversionResource {
     @Autowired
     private AmountConversionService conversionService;
 
-    @GetMapping(path = "/ktoc/{kelvin}", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @ApiOperation(value="Convert Kelvin Amount to Celsius Endpoint",
+            notes="${userResource.KelvinToCelsius.ApiOperation.Notes}")
+    @GetMapping(path = "/ktoc/{kelvin}", produces = {MediaType.TEXT_PLAIN_VALUE})
     public String convertKelvinToCelsius(@PathVariable double kelvin){
+        getLog().info("Converting Kelvin to Celsius {} ", kelvin);
        return conversionService.convertKelvinToCelsius(kelvin);
     }
 }
